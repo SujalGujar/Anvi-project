@@ -30,6 +30,8 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
     <style>
 
@@ -55,145 +57,440 @@
 
 
           
-      .footer {
-        background-color: #1a1a1a;
-        color: #ffffff;
-        padding: 60px 0 0 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-    
-    .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-        margin-bottom: 40px;
-    }
-    
-    .footer-section h4 {
-        color: #fff;
-        font-size: 1.2rem;
-        margin-bottom: 20px;
-        position: relative;
-        padding-bottom: 10px;
-    }
-    
-    .footer-section h4::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 50px;
-        height: 2px;
-        background-color: #0d6efd;
-    }
-    
-    .contact-info p {
-        margin: 10px 0;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: #cecece;
-    }
-    
-    .social-links {
-        display: flex;
-        gap: 15px;
-        margin-top: 20px;
-    }
-    
-    .social-links a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 35px;
-        height: 35px;
-        border: 1px solid #ffffff;
-        border-radius: 50%;
-        color: #ffffff;
-        text-decoration: none;
-        transition: all 0.3s ease;
-    }
-    
-    .social-links a:hover {
-        background-color: #0d6efd;
-        border-color: #0d6efd;
-    }
-    
-    .opening-hours h6 {
-        color: #fff;
-        margin: 0;
-        font-weight: normal;
-    }
-    
-    .opening-hours p {
-        color: #cecece;
-        margin: 10px 0;
-    }
-    
-    .footer-bottom {
-        border-top: 1px solid #333;
-        padding: 20px 0;
-    }
-    
-    .footer-bottom-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-    
-    .copyright {
-        color: #cecece;
-    }
-    
-    .copyright a {
-        color: #fff;
-        text-decoration: none;
-        border-bottom: 1px solid transparent;
-        transition: border-color 0.3s ease;
-    }
-    
-    .copyright a:hover {
-        border-color: #fff;
-    }
-    
-    .footer-menu {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-    }
-    
-    .footer-menu a {
-        color: #cecece;
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-    
-    .footer-menu a:hover {
-        color: #fff;
-    }
-    
-    @media (max-width: 768px) {
+          .footer {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 60px 0 0 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
         .footer-content {
-            grid-template-columns: 1fr;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        /* Hours and Map Container */
+        .hours-map-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .footer-section h4 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #0d6efd;
+        }
+        
+        .contact-info p {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #cecece;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            border: 1px solid #ffffff;
+            border-radius: 50%;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+        
+        .opening-hours h6 {
+            color: #fff;
+            margin: 0;
+            font-weight: normal;
+        }
+        
+        .opening-hours p {
+            color: #cecece;
+            margin: 10px 0;
+        }
+        
+        .map-section {
+            width: 100%;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding: 20px 0;
         }
         
         .footer-bottom-content {
-            flex-direction: column;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .copyright {
+            color: #cecece;
+        }
+        
+        .copyright a {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        
+        .copyright a:hover {
+            border-color: #fff;
         }
         
         .footer-menu {
-            justify-content: center;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-menu a {
+            color: #cecece;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-menu a:hover {
+            color: #fff;
+        }
+        
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hours-map-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-menu {
+                justify-content: center;
+            }
+        }
+
+
+    .service {
+        background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 100%);
+        padding: 80px 0;
+        position: relative;
+    }
+    
+    .service::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 8px;
+        background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
+    }
+    
+    .service .text-primary {
+        color: #FF6B6B !important;
+        font-size: 1.2rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        display: inline-block;
+        position: relative;
+        font-weight: 600;
+        background: linear-gradient(90deg, #FF6B6B, #FF8E53);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .service h1 {
+        font-size: 2.5rem;
+        line-height: 1.4;
+        margin-bottom: 40px;
+        color: #2C3E50;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+    
+    .service .list-unstyled {
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        width: 100%;
+    }
+    
+    .service .list-unstyled li {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 25px 20px;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        min-height: 90px;
+        display: flex;
+        align-items: center;
+        border: 1px solid rgba(240, 240, 240, 0.8);
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .service .list-unstyled li::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+    
+    .service .list-unstyled li:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        border-color: rgba(255, 107, 107, 0.2);
+        background: rgba(255, 255, 255, 1);
+    }
+    
+    .service .list-unstyled li:hover::before {
+        transform: scaleX(1);
+    }
+    
+    .service .list-unstyled li span {
+        font-size: 1.6rem;
+        margin-right: 12px;
+        background: linear-gradient(135deg, #2ECC71, #27AE60);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+        transform: scale(1);
+        transition: transform 0.3s ease;
+    }
+    
+    .service .list-unstyled li:hover span {
+        transform: scale(1.2);
+    }
+    
+    .service .list-unstyled li strong {
+        color: #34495E;
+        font-size: 1.1rem;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+    
+    .service .list-unstyled li:hover strong {
+        color: #FF6B6B;
+    }
+    
+    .service .mb-5 {
+        position: relative;
+        padding-bottom: 25px;
+    }
+    
+    .service .mb-5::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
+        border-radius: 4px;
+    }
+    
+    @media (max-width: 991px) {
+        .service .list-unstyled {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
     }
+    
+    @media (max-width: 768px) {
+        .service h1 {
+            font-size: 1.8rem;
+        }
+        
+        .service .list-unstyled {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .service .list-unstyled li {
+            min-height: 75px;
+            padding: 18px 15px;
+        }
+        
+        .service .list-unstyled li strong {
+            font-size: 0.95rem;
+        }
+        
+        .service .list-unstyled li span {
+            font-size: 1.3rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .service .list-unstyled {
+            gap: 12px;
+        }
+        
+        .service .list-unstyled li {
+            padding: 15px 12px;
+        }
+    }
+
+
+    
+  /* Style the icons and list items */
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+  
+  ul li {
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  ul li:hover {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+  }
+  
+  /* Style the icons */
+  .icon {
+    margin-right: 10px;
+    font-size: 28px;
+    color: #00bcd4;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .icon:hover {
+    transform: scale(1.2);
+    color: #ff5722;
+  }
+  
+  /* Adjust strong text */
+  ul li strong {
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+  }
+  
+  /* Add more specific styles for different icons */
+  .fas.fa-tools {
+    color: #f39c12;
+  }
+  
+  .fas.fa-oil-can {
+    color: #8e44ad;
+  }
+  
+  .fas.fa-brake-system {
+    color: #e74c3c;
+  }
+  
+  .fas.fa-tire {
+    color: #2ecc71;
+  }
+  
+  .fas.fa-cogs {
+    color: #f39c12;
+  }
+  
+  .fas.fa-battery-half {
+    color: #e67e22;
+  }
+  
+  .fas.fa-brake-pad {
+    color: #c0392b;
+  }
+  
+  .fas.fa-filter {
+    color: #2980b9;
+  }
+  
+  .fas.fa-wrench {
+    color: #27ae60;
+  }
+  
+  .fas.fa-link {
+    color: #f1c40f;
+  }
+  
+  .fas.fa-spray-can {
+    color: #8e44ad;
+  }
+  
+  .fas.fa-bolt {
+    color: #e74c3c;
+  }
+  
+  .fas.fa-plug {
+    color: #16a085;
+  }
+  
+  .fas.fa-gear {
+    color: #3498db;
+  }
+  
+  .fas.fa-search {
+    color: #2c3e50;
+  }
+  
 
     </style>
 </head>
@@ -263,22 +560,38 @@
     </nav>
     -->
 
-    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary"><i class="fa fa-motorcycle me-3"></i>Anvi</h2>
-        </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav mx-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
-                <a href="service.html" class="nav-item nav-link">Services</a>
-                <a href="#booking" class="nav-item nav-link">Contact</a>
-            </div>
-            <a href="#booking" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Book an Appointment<i class="fa fa-arrow-right ms-3"></i></a>
+    <nav
+      class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0"
+    >
+      <a
+        href="index.html"
+        class="navbar-brand d-flex align-items-center px-4 px-lg-5"
+      >
+        <h2 class="m-0 text-primary">
+          <i class="fa fa-motorcycle me-3"></i>Anvi
+        </h2>
+      </a>
+      <button
+        type="button"
+        class="navbar-toggler me-4"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav mx-auto p-4 p-lg-0">
+          <a href="index.html" class="nav-item nav-link ">Home</a>
+          <a href="about.html" class="nav-item nav-link">About</a>
+          <a href="service.html" class="nav-item nav-link">Services</a>
+          <a href="#booking" class="nav-item nav-link">Contact</a>
         </div>
+        <a
+          href="#booking"
+          class="btn btn-primary py-4 px-2 d-none d-lg-block"
+          >Book an Appointment<i class="fa fa-arrow-right ms-3"></i
+        ></a>
+      </div>
     </nav>
 
     <!-- Navbar End -->
@@ -305,189 +618,213 @@
    
 <!-- Servies Start-->
 <div class="container-xxl service py-5">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h6 class="text-primary text-uppercase">// Services List //</h6>
-                <h1>Explore Services</h1>
-        </div>
-
-        <div class="row">
-            <ul class="list-unstyled d-flex flex-wrap justify-content-center">
-                <li class="col-md-3 col-sm-6 mb-4"><span style="color: green; font-weight: bold;">✓</span> <strong>General Bike Servicing</strong></li>
-                <li class="col-md-3 col-sm-6 mb-4"><span style="color: green; font-weight: bold;">✓</span> <strong>Engine Oil Change</strong></li>
-                <li class="col-md-3 col-sm-6 mb-4"><span style="color: green; font-weight: bold;">✓</span> <strong>Brake Repair & Replacement</strong></li>
-                <li class="col-md-3 col-sm-6 mb-4"><span style="color: green; font-weight: bold;">✓</span> <strong>Tire Inspection</strong></li>
-                <li class="col-md-3 col-sm-6 mb-4"><span style="color: green; font-weight: bold;">✓</span> <strong>Chain Lubrication</strong></li>
-                <li class="col-md-3 col-sm-6 mb-4"><span style="color: green; font-weight: bold;">✓</span> <strong>Battery Voltage Check</strong></li>
-                <li class="col-md-3 col-sm-6 mb-4"><span style="color: green; font-weight: bold;">✓</span> <strong>Brakes Service</strong></li>
-                <li class="col-md-3 col-sm-6 mb-4"><span style="color: green; font-weight: bold;">✓</span> <strong>Air Filter Cleaning</strong></li>
-                <li class="col-md-3 col-sm-6 mb-4"><span style="color: green; font-weight: bold;">✓</span> <strong>Cables & Levers Adjustment</strong></li>
-                <li class="col-md-3 col-sm-6 mb-4"><span style="color: green; font-weight: bold;">✓</span> <strong>Chain Tension Check</strong></li>
-                <li class="col-md-3 col-sm-6 mb-4"><span style="color: green; font-weight: bold;">✓</span> <strong>Clutch Greasing</strong></li>
-                <li class="col-md-3 col-sm-6 mb-4"><span style="color: green; font-weight: bold;">✓</span> <strong>Dry Wash</strong></li>
-                <li class="col-md-3 col-sm-6 mb-4"><span style="color: green; font-weight: bold;">✓</span> <strong>Electric Checkup</strong></li>
-                <li class="col-md-3 col-sm-6 mb-4"><span style="color: green; font-weight: bold;">✓</span> <strong>Spark Plug Cleaning</strong></li>
-                <li class="col-md-3 col-sm-6 mb-4"><span style="color: green; font-weight: bold;">✓</span> <strong>Greasing and Lubrication</strong></li>
-                <li class="col-md-3 col-sm-6 mb-4"><span style="color: green; font-weight: bold;">✓</span> <strong>Oil Leakage Check</strong></li>
-                
-            </ul>
-        </div>
+  <div class="container">
+    <!--
+    <div class="text-center mb-5">
+      <h1 class="text-primary text-uppercase">Our Services</h1>
+      <br/>
+        <h4 class="text-primary">Your Doorstep Service</h4>
+        <h5 style="font-weight: normal; color: #666;">
+          Experience Professional Periodic Bike Servicing at Your Doorstep in Ahmedabad.<br />
+          Avail Expert Bike Engine Repairs, Battery Replacements, and More<br />
+          All From the Comfort of Your Home.
+        </h5> 
     </div>
+    -->
+    <div style="text-align: center; margin-bottom: 50px;">
+      <h1 style="color: #007bff; text-transform: uppercase; font-size: 36px; font-weight: bold; letter-spacing: 2px; margin-bottom: 10px;">
+        Our Services
+      </h1>
+      
+      <div style="width: 60px; height: 4px; background-color: #007bff; margin: 10px auto;"></div>
+      
+      <h4 style="color: #007bff; font-size: 24px; font-weight: 600; margin-top: 15px;">
+        Your Doorstep Service
+      </h4>
+      
+      <h5 style="font-size: 18px; font-weight: normal; color: #666; line-height: 1.6; max-width: 700px; margin: 10px auto;">
+        Experience <span style="font-weight: 600; color: #333;">Professional Periodic Bike Servicing</span> at Your Doorstep in Ahmedabad.<br />
+        Avail <span style="font-weight: 600; color: #333;">Expert Bike Engine Repairs, Battery Replacements</span>, and More,<br />
+        All From the Comfort of Your Home.
+      </h5> 
+    </div>
+    
+    
+  
+
+      <div class="row">
+        <ul class="list-unstyled">
+            <li><i class="fas fa-tools icon"></i> <strong>General Bike Servicing</strong></li>
+            <li><i class="fas fa-oil-can icon"></i> <strong>Engine Oil Change</strong></li>
+            <li><i class="fas fa-tools icon"></i> <strong>Brake Repair & Replacement</strong></li>
+            <li><i class="fas fa-car icon"></i> <strong>Tire Inspection</strong></li>
+            <li><i class="fas fa-cogs icon"></i> <strong>Chain Lubrication</strong></li>
+            <li><i class="fas fa-battery-half icon"></i> <strong>Battery Voltage Check</strong></li>
+            <li><i class="fas fa-wrench icon"></i> <strong>Brakes Service</strong></li>
+            <li><i class="fas fa-filter icon"></i> <strong>Air Filter Cleaning</strong></li>
+            <li><i class="fas fa-wrench icon"></i> <strong>Cables & Levers Adjustment</strong></li>
+            <li><i class="fas fa-link icon"></i> <strong>Chain Tension Check</strong></li>
+            <li><i class="fas fa-cogs icon"></i> <strong>Clutch Greasing</strong></li>
+            <li><i class="fas fa-spray-can icon"></i> <strong>Dry Wash</strong></li>
+            <li><i class="fas fa-bolt icon"></i> <strong>Electric Checkup</strong></li>
+            <li><i class="fas fa-plug icon"></i> <strong>Spark Plug Cleaning</strong></li>
+            <li><i class="fas fa-cogs icon"></i> <strong>Greasing and Lubrication</strong></li>
+            <li><i class="fas fa-search icon"></i> <strong>Oil Leakage Check</strong></li>
+        </ul>
+    </div>
+    
+  </div>
 </div>
 <!-- Service End -->
 
 
-<!-- Booking Start -->
-<div class="container-fluid bg-secondary booking-section py-5" id="booking">
-    <div class="container">
+ <!-- Booking Start -->
+ <div class="container-fluid bg-secondary booking-section py-5" id="booking">
+  <div class="container">
       <div class="row align-items-center g-5">
-        <!-- Left Column: Text Content -->
-        <div class="col-lg-6 text-white">
-          <h1 class="display-5 fw-bold mb-4"  style="color:red" >Award-Winning Bike Repair Services</h1>
-          <p class="mb-4">
-            Experience top-notch bike servicing with our certified technicians. Schedule your service today, and we’ll confirm your booking within 24 hours!
-          </p>
-          <ul class="list-unstyled">
-            <li class="mb-3">
-              <i class="fas fa-check-circle text-primary me-2"></i> Expert Technicians
-            </li>
-            <li class="mb-3">
-              <i class="fas fa-check-circle text-primary me-2"></i> Affordable Pricing
-            </li>
-            <li class="mb-3">
-              <i class="fas fa-check-circle text-primary me-2"></i> Quick Turnaround
-            </li>
-          </ul>
-        </div>
-  
-        <!-- Right Column: Booking Form -->
-        <div class="col-lg-6">
-          <div class="bg-light rounded shadow p-4">
-            <h3 class="text-center fw-bold mb-4">Book Your Service</h3>
-            <form
-              action="https://formsubmit.co/prajapativijendra664@gmail.com"
-              method="POST"
-            >
-              <input type="hidden" name="_subject" value="New Service Booking Request" />
-              <input type="hidden" name="_template" value="table" />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value="https://anvi-bike.vercel.app/thank-you.html" />
-  
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label class="form-label"style="color: black;">Name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    class="form-control border-0 shadow-sm"
-                    placeholder="Enter your name"
-                    required
-                    style="color: black;"
-                  />
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label"style="color: black;">Mobile No</label>
-                  <input
-                    type="text"
-                    name="contact"
-                    class="form-control border-0 shadow-sm"
-                    pattern="\d{10}"
-                    maxlength="10"
-                    placeholder="10-digit number"
-                    required
-                  />
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label"style="color: black;">Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    class="form-control border-0 shadow-sm"
-                    placeholder="example@domain.com"
-                    required
-                  />
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label"style="color: black;">Full Address</label>
-                  <textarea
-                    name="address"
-                    rows="2"
-                    class="form-control border-0 shadow-sm"
-                    placeholder="Enter your address"
-                    required
-                  ></textarea>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label"style="color: black;">Service Type</label>
-                  <select
-                    name="service_type"
-                    class="form-select border-0 shadow-sm"
-                    required
-                  >
-                    <option value="">-- Select Service --</option>
-                    <option value="services">Services</option>
-                    <option value="inspection">Inspection</option>
-                    <option value="repair">Repair</option>
-                  </select>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label"style="color: black;">Bike Brand</label>
-                  <select
-                    name="bike_brand"
-                    class="form-select border-0 shadow-sm"
-                    required
-                  >
-                    <option value="">-- Select Brand --</option>
-                    <option value="honda">Honda</option>
-                    <option value="yamaha">Yamaha</option>
-                    <option value="suzuki">Suzuki</option>
-                    <option value="ktm">KTM</option>
-                    <option value="hero">Hero</option>
-                    <option value="bajaj">Bajaj</option>
-                    <option value="royal-enfield">Royal Enfield</option>
-                    <option value="others">Others</option>
-                  </select>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label"style="color: black;">Bike Model</label>
-                  <input
-                    type="text"
-                    name="bike_model"
-                    class="form-control border-0 shadow-sm"
-                    placeholder="Enter bike model"
-                    required
-                  />
-                </div>
-                
-                <div class="col-12">
-                  <label class="form-label"style="color: black;">Description Message</label>
-                  <textarea
-                    name="description"
-                    rows="4"
-                    class="form-control border-0 shadow-sm"
-                    placeholder="Additional details..."
-                    required
-                  ></textarea>
-                </div>
-                <div class="col-12">
-                    <button
-                      class="btn w-100 py-2 shadow"
-                      style="background-color: green; color: black;"
-                      type="submit"
-                    >
-                      Submit Booking Request
-                    </button>
-                  </div>
-              </div>
-            </form>
+          <!-- Left Column: Text Content -->
+          <div class="col-lg-6 text-white">
+              <h1 class="display-5 fw-bold mb-4">Award-Winning Bike Repair Services</h1>
+              <p class="mb-4">
+                  Experience top-notch bike servicing with our certified technicians. Schedule your service today, and we’ll confirm your booking within 24 hours!
+              </p>
+              <ul class="list-unstyled">
+                  <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Expert Technicians</li>
+                  <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Affordable Pricing</li>
+                  <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Quick Turnaround</li>
+              </ul>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
+          <!-- Right Column: Booking Form -->
+          <div class="col-lg-6">
+              <div class="bg-light rounded shadow p-4">
+                  <h3 class="text-center fw-bold mb-4">Book Your Service</h3>
+                  <form action="https://formsubmit.co/prajapativijendra664@gmail.com" method="POST">
+                      <input type="hidden" name="_subject" value="New Service Booking Request" />
+                      <input type="hidden" name="_template" value="table" />
+                      <input type="hidden" name="_captcha" value="false" />
+                      <input type="hidden" name="_next" value="https://anvi-bike.vercel.app/thank-you.html" />
+
+                      <div class="row g-3">
+                          <div class="col-md-6">
+                              <label class="form-label" style="color: black;"> Full Name</label>
+                              <input type="text" name="name" class="form-control border-0 shadow-sm" placeholder="Enter your name" required />
+                          </div>
+                          <div class="col-md-6">
+                              <label class="form-label" style="color: black;">Mobile No.</label>
+                              <input type="text" name="contact" class="form-control border-0 shadow-sm" pattern="\d{10}" maxlength="10" placeholder="10-digit number" required />
+                          </div>
+                          <div class="col-md-6">
+                              <label class="form-label" style="color: black;"> Your Email</label>
+                              <input type="email" name="email" class="form-control border-0 shadow-sm" placeholder="example@domain.com" required />
+                          </div>
+                          <div class="col-md-6">
+                             <label class="form-label" style="color: black;">Select Area</label>
+                              <select id="areaSelect" name="area" class="form-select border-0 shadow-sm" required>
+
+                                
+                                <option value="">-- Select Area --</option>
+                                <option value="Shahpur">Shahpur</option>
+                                <option value="Dariapur">Dariapur</option>
+                                <option value="Jamalpur">Jamalpur</option>
+                                <option value="Khadia">Khadia</option>
+                                <option value="Asarwa">Asarwa</option>
+                                <option value="Shahibaug">Shahibaug</option>
+                                <option value="Gomtipur">Gomtipur</option>
+                                <option value="Odhav">Odhav</option>
+                                <option value="Vastral">Vastral</option>
+                                <option value="Bhaipura-Hatkeshwar">Bhaipura-Hatkeshwar</option>
+                                <option value="Amraiwadi">Amraiwadi</option>
+                                <option value="Ramol-Hathijan">Ramol-Hathijan</option>
+                                <option value="Nikol">Nikol</option>
+                                <option value="Viratnagar">Viratnagar</option>
+                                <option value="Bapunagar">Bapunagar</option>
+                                <option value="India Colony">India Colony</option>
+                                <option value="Thakkar Bapanagar">Thakkar Bapanagar</option>
+                                <option value="Saraspur">Saraspur</option>
+                                <option value="Sardarnagar">Sardarnagar</option>
+                                <option value="Naroda">Naroda</option>
+                                <option value="Kubernagar">Kubernagar</option>
+                                <option value="Saijpur Bogha">Saijpur Bogha</option>
+                                <option value="Gota">Gota</option>
+                                <option value="Chandlodiya">Chandlodiya</option>
+                                <option value="Ghatlodiya">Ghatlodiya</option>
+                                <option value="Thaltej">Thaltej</option>
+                                <option value="Bodakdev">Bodakdev</option>
+                                <option value="Behrampura">Behrampura</option>
+                                <option value="Indrapuri">Indrapuri</option>
+                                <option value="Khokhra">Khokhra</option>
+                                <option value="Maninagar">Maninagar</option>
+                                <option value="Danilimda">Danilimda</option>
+                                <option value="Lambha">Lambha</option>
+                                <option value="Isanpur">Isanpur</option>
+                                <option value="Vatva">Vatva</option>
+                                <option value="Sarkhej">Sarkhej</option>
+                                <option value="Jodhpur">Jodhpur</option>
+                                <option value="Vejalpur">Vejalpur</option>
+                                <option value="Maktampura">Maktampura</option>
+                                <option value="Ranip">Ranip</option>
+                                <option value="Chandkheda-Motera">Chandkheda-Motera</option>
+                                <option value="Sabarmati">Sabarmati</option>
+                                <option value="Naranpura">Naranpura</option>
+                                <option value="Nava Vadaj">Nava Vadaj</option>
+                                <option value="S. P. Stadium">S. P. Stadium</option>
+                                <option value="Navrangpura">Navrangpura</option>
+                                <option value="Paldi">Paldi</option>
+                                <option value="Vastrapur">Vastrapur</option>
+                                <option value="Vasna">Vasna</option>
+                                <option value="Others">Other</option>
+                                
+                              </select>
+                          </div>
+                          <div class="col-md-6 d-none" id="otherAreaDiv">
+                              <label class="form-label" style="color: black;">Enter Your Address</label>
+                              <textarea name="address" rows="2" class="form-control border-0 shadow-sm" placeholder="Enter your address"></textarea>
+                          </div>
+                          <div class="col-md-6">
+                              <label class="form-label" style="color: black;">Service Type</label>
+                              <select name="service_type" class="form-select border-0 shadow-sm" required>
+                                  <option value="">-- Select Service --</option>
+                                  <option value="services">Services</option>
+                                  <option value="inspection">Inspection</option>
+                                  <option value="repair">Repair</option>
+                              </select>
+                          </div>
+                          <div class="col-md-6">
+                              <label class="form-label" style="color: black;">Bike Brand</label>
+                              <select name="bike_brand" class="form-select border-0 shadow-sm" required>
+                                  <option value="">-- Select Brand --</option>
+                                  <option value="honda">Honda</option>
+                                  <option value="yamaha">Yamaha</option>
+                                  <option value="suzuki">Suzuki</option>
+                                  <option value="ktm">KTM</option>
+                                  <option value="hero">Hero</option>
+                                  <option value="bajaj">Bajaj</option>
+                                  <option value="royal-enfield">Royal Enfield</option>
+                                  <option value="others">Others</option>
+                              </select>
+                          </div>
+                          <div class="col-md-6">
+                              <label class="form-label" style="color: black;">Bike Model</label>
+                              <input type="text" name="bike_model" class="form-control border-0 shadow-sm" placeholder="Enter bike model" required />
+                          </div>
+                          <div class="col-12">
+                              <label class="form-label" style="color: black;">Description Message</label>
+                              <textarea name="description" rows="4" class="form-control border-0 shadow-sm" placeholder="Additional details..." required></textarea>
+                          </div>
+                          <div class="col-12">
+                              <button class="btn w-100 py-2 shadow" style="background-color: green; color: black;" type="submit">Submit Booking Request</button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
 
     <!-- Testimonial Start -->
+    <!--
     <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container">
             <div class="text-center">
@@ -530,65 +867,77 @@
             </div>
         </div>
     </div>
+    -->
     <!-- Testimonial End -->
 
 
     <!-- Footer Start -->
     <div class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <!-- Address Section -->
-                <div class="footer-section">
-                    <h4>Address</h4>
-                    <div class="contact-info">
-                        <p>
-                            <i class="fa fa-map-marker-alt"></i>
-                            Bhargav Road, Meghani Nagar, Ahmedabad, India
-                        </p>
-                        <p>
-                            <i class="fa fa-phone-alt"></i>
-                            +91 7698287867, +91 9429772879
-                        </p>
-                        <p>
-                            <i class="fa fa-envelope"></i>
-                            info@example.com
-                        </p>
-                    </div>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-    
-                <!-- Opening Hours Section -->
-                <div class="footer-section">
-                    <h4>Opening Hours</h4>
-                    <div class="opening-hours">
-                        <h6>Monday - Sunday:</h6>
-                        <p>24/7 Available</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Footer Bottom -->
-            <div class="footer-bottom">
-                <div class="footer-bottom-content">
-                    <div class="copyright">
-                        &copy; <a href="#">Your Site Name</a>, All Rights Reserved.
-                        Designed by <a href="https://codeniche.com">CodeNiche</a>
-                    </div>
-                    <div class="footer-menu">
-                        <a href="#">Home</a>
-                        <a href="#">Cookies</a>
-                        <a href="#">Help</a>
-                        <a href="#">FAQs</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+      <div class="container">
+          <div class="footer-content">
+              <!-- Address Section -->
+              <div class="footer-section">
+                  <h4>Address</h4>
+                  <div class="contact-info">
+                      <p>
+                          <i class="fa fa-map-marker-alt"></i>
+                          Bhargav Road, Meghani Nagar, Ahmedabad, India
+                      </p>
+                      <p>
+                          <i class="fa fa-phone-alt"></i>
+                          +91 7698287867, +91 9429772879
+                      </p>
+                      <p>
+                          <i class="fa fa-envelope"></i>
+                          info@example.com
+                      </p>
+                  </div>
+                  <div class="social-links">
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                      <a href="#"><i class="fab fa-facebook-f"></i></a>
+                      <a href="#"><i class="fab fa-youtube"></i></a>
+                      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                  </div>
+              </div>
+  
+              <!-- Hours and Map Container -->
+              <div class="hours-map-container">
+                  <!-- Opening Hours Section -->
+                  <div class="footer-section">
+                      <h4>Opening Hours</h4>
+                      <div class="opening-hours">
+                          <h6>Monday - Sunday:</h6>
+                          <p>24/7 Available</p>
+                      </div>
+                  </div>
+                  
+                  <!-- Map Section -->
+                  <div class="footer-section map-section">
+                      <h4>Our Location</h4>
+                      <div id="map" style="height: 300px;"></div>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Footer Bottom -->
+          <div class="footer-bottom">
+              <div class="footer-bottom-content">
+                  <div class="copyright">
+                      &copy; <a href="#">Your Site Name</a>, All Rights Reserved.
+                      Designed by <a href="https://codeniche.com">CodeNiche</a>
+                  </div>
+                  <!--
+                  <div class="footer-menu">
+                      <a href="#">Home</a>
+                      <a href="#">Cookies</a>
+                      <a href="#">Help</a>
+                      <a href="#">FAQs</a>
+                  </div>
+                  -->
+              </div>
+          </div>
+      </div>
+  </div>
     <!-- Footer End -->
 
 
@@ -610,6 +959,17 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+      var map = L.map('map').setView([23.0225, 72.5714], 13); // Ahmedabad coordinates
+  
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+  
+      L.marker([23.0225, 72.5714]).addTo(map)  // Marker for Ahmedabad location
+          .bindPopup("<b>Our Location</b><br>Bhargav Road, Meghani Nagar, Ahmedabad, India")
+          .openPopup();
+  </script>
 </body>
 
 </html>
