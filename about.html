@@ -45,7 +45,7 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
     <style>
-      .footer {
+      .footertab {
         background-color: #1a1a1a;
         color: #ffffff;
         padding: 60px 0 0 0;
@@ -201,6 +201,26 @@
           justify-content: center;
         }
       }
+
+
+      .booking-section {
+        background: linear-gradient(to right, #6c757d, #495057);
+        color: #ffffff;
+      }
+      .booking-section h1,
+      .booking-section h3 {
+        font-family: "Poppins", sans-serif;
+      }
+      .form-control,
+      .form-select {
+        background-color: #f8f9fa;
+        font-size: 16px;
+      }
+      .form-control:focus,
+      .form-select:focus {
+        border-color: #80bdff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+      }
     </style>
   </head>
 
@@ -227,9 +247,16 @@
         href="index.html"
         class="navbar-brand d-flex align-items-center px-4 px-lg-5"
       >
+        <!--
         <h2 class="m-0 text-primary">
           <i class="fa fa-motorcycle me-3"></i>Anvi
         </h2>
+        -->
+        <img
+          src="img/logoanvi.jpeg"
+          alt="Anvi Auto Service Center Logo"
+          style="height: 65px; width: auto"
+        />
       </a>
       <button
         type="button"
@@ -247,8 +274,9 @@
           <a href="#booking" class="nav-item nav-link">Contact</a>
         </div>
         <a href="#booking" class="btn btn-primary py-4 px-2 d-none d-lg-block"
-          >Book an Appointment<i class="fa fa-arrow-right ms-3"></i
-        ></a>
+          style="background-color: black; border-color: gray;"
+        >Book an Appointment<i class="fa fa-arrow-right ms-3"></i></a>
+
       </div>
     </nav>
 
@@ -313,230 +341,244 @@
 
     <!-- About Start -->
     <div
-      class="container"
-      style="max-width: 1200px; margin: auto; padding: 50px 20px"
+    class="container"
+    style="max-width: 1200px; margin: auto; padding: 50px 20px"
+  >
+    <div
+      class="row"
+      style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px"
     >
+      <!-- Image Section -->
       <div
-        class="row"
-        style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px"
+        class="col"
+        style="
+          flex: 1;
+          min-width: 300px;
+          position: relative;
+          height: 400px;
+          overflow: hidden;
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        "
       >
-        <!-- Image Section -->
-        <div
-          class="col"
+        <img
+          src="img/harley-davidson-6_OBa-II5Go-unsplash.jpg"
+          alt="Bike Mechanic"
           style="
-            flex: 1;
-            min-width: 300px;
-            position: relative;
-            height: 400px;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease-in-out;
+          "
+          onmouseover="this.style.transform='scale(1.05)';"
+          onmouseout="this.style.transform='scale(1)';"
+        />
+        <div
+          style="
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: linear-gradient(to right, #333, #666);
+            color: white;
+            padding: 15px 25px;
+            border-bottom-left-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
           "
         >
-          <img
-            src="img/harley-davidson-6_OBa-II5Go-unsplash.jpg"
-            alt="Bike Mechanic"
-            style="
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-              transition: transform 0.5s ease-in-out;
-            "
-            onmouseover="this.style.transform='scale(1.05)';"
-            onmouseout="this.style.transform='scale(1)';"
-          />
+          <h1 style="font-size: 36px; font-weight: bold; margin: 0">
+            7 <span style="font-size: 18px">Years</span>
+          </h1>
+          <p style="font-size: 18px; margin: 5px 0 0; font-weight: bold">
+            Experience
+          </p>
+        </div>
+      </div>
+
+      <!-- Text Section -->
+      <div class="col" style="flex: 1; min-width: 300px">
+        <h6
+          style="
+            font-size: 16px;
+            text-transform: uppercase;
+            font-weight: bold;
+          "
+          class="text-primary"
+        >
+          About Us
+        </h6>
+        <h1 style="font-size: 32px; font-weight: bold; margin-bottom: 15px color:rgb(36, 4, 178)">
+          Passionate About Keeping Your Bike
+          <span style="color:rgb(227, 124, 34)">Road-Ready!</span>
+        </h1>
+        <p style="color: #555; line-height: 1.6">
+          I'm <span style="color: rgba(70, 40, 167, 0.83); font-weight: bold">Vijendra</span>,
+          a skilled bike mechanic offering doorstep bike service in Ahmedabad.
+          With 7 years of experience, I ensure quick, reliable, and affordable
+          bike maintenance so you can ride worry-free. Whether it's a routine
+          check-up or an urgent repair, I've got you covered!
+        </p>
+
+        <!-- Why Choose Me? -->
+        <div style="margin-top: 20px">
+          <h2 style="font-size: 24px; font-weight: bold; color: #333">
+            Why Choose Me?
+          </h2>
           <div
             style="
-              position: absolute;
-              top: 0;
-              right: 0;
-              background: linear-gradient(to right, #333, #666);
-              color: white;
-              padding: 15px 25px;
-              border-bottom-left-radius: 10px;
-              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              margin-top: 10px;
             "
           >
-            <h1 style="font-size: 36px; font-weight: bold; margin: 0">
-              7 <span style="font-size: 18px">Years</span>
-            </h1>
-            <p style="font-size: 18px; margin: 5px 0 0; font-weight: bold">
-              Experience
+            <div
+              style="
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background:rgb(227, 124, 34);
+                color: white;
+                font-weight: bold;
+                border-radius: 50%;
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+              "
+            >
+              01
+            </div>
+            <p style="font-size: 16px; color: #555; font-weight: bold">
+              Personalized Service
+            </p>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              margin-top: 10px;
+            "
+          >
+            <div
+              style="
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgb(227, 124, 34);
+                color: white;
+                font-weight: bold;
+                border-radius: 50%;
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+              "
+            >
+              02
+            </div>
+            <p style="font-size: 16px; color: #555; font-weight: bold">
+              Affordable Pricing
+            </p>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              margin-top: 10px;
+            "
+          >
+            <div
+              style="
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgb(227, 124, 34);
+                color: white;
+                font-weight: bold;
+                border-radius: 50%;
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+              "
+            >
+              03
+            </div>
+            <p style="font-size: 16px; color: #555; font-weight: bold">
+              Convenient Doorstep Repairs
             </p>
           </div>
         </div>
 
-        <!-- Text Section -->
-        <div class="col" style="flex: 1; min-width: 300px">
-          <h6
-            style="
-              font-size: 16px;
-              text-transform: uppercase;
-              font-weight: bold;
-            "
-            class="text-primary"
-          >
-            About Us
-          </h6>
-          <h1 style="font-size: 32px; font-weight: bold; margin-bottom: 15px">
-            Passionate About Keeping Your Bike
-            <span style="color: #28a745">Road-Ready!</span>
-          </h1>
-          <p style="color: #555; line-height: 1.6">
-            I'm <span style="color: #28a745; font-weight: bold">Vijendra</span>,
-            a skilled bike mechanic offering doorstep bike service in Ahmedabad.
-            With 7 years of experience, I ensure quick, reliable, and affordable
-            bike maintenance so you can ride worry-free. Whether it's a routine
-            check-up or an urgent repair, I've got you covered!
-          </p>
-
-          <!-- Why Choose Me? -->
-          <div style="margin-top: 20px">
-            <h2 style="font-size: 24px; font-weight: bold; color: #333">
-              Why Choose Me?
-            </h2>
-            <div
-              style="
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                margin-top: 10px;
-              "
-            >
-              <div
-                style="
-                  width: 40px;
-                  height: 40px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  background: #28a745;
-                  color: white;
-                  font-weight: bold;
-                  border-radius: 50%;
-                  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-                "
-              >
-                01
-              </div>
-              <p style="font-size: 16px; color: #555; font-weight: bold">
-                Personalized Service
-              </p>
-            </div>
-            <div
-              style="
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                margin-top: 10px;
-              "
-            >
-              <div
-                style="
-                  width: 40px;
-                  height: 40px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  background: #28a745;
-                  color: white;
-                  font-weight: bold;
-                  border-radius: 50%;
-                  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-                "
-              >
-                02
-              </div>
-              <p style="font-size: 16px; color: #555; font-weight: bold">
-                Affordable Pricing
-              </p>
-            </div>
-            <div
-              style="
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                margin-top: 10px;
-              "
-            >
-              <div
-                style="
-                  width: 40px;
-                  height: 40px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  background: #28a745;
-                  color: white;
-                  font-weight: bold;
-                  border-radius: 50%;
-                  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-                "
-              >
-                03
-              </div>
-              <p style="font-size: 16px; color: #555; font-weight: bold">
-                Convenient Doorstep Repairs
-              </p>
-            </div>
-          </div>
-
-          <!-- CTA Button -->
-          <a
-            href="#booking"
-            style="
-              display: inline-block;
-              background: #28a745;
-              color: white;
-              padding: 12px 20px;
-              border-radius: 6px;
-              font-size: 16px;
-              font-weight: bold;
-              margin-top: 20px;
-              text-decoration: none;
-              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-              transition: background 0.3s ease;
-            "
-            onmouseover="this.style.background='#218838';"
-            onmouseout="this.style.background='#28a745';"
-          >
-            Book Now <i class="fa fa-arrow-right" style="margin-left: 5px"></i>
-          </a>
-        </div>
+        <!-- CTA Button -->
+        <a
+          href="#booking"
+          style="
+            display: inline-block;
+            background: #0A2342;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease;
+          "
+          
+        >
+          Book Now <i class="fa fa-arrow-right" style="margin-left: 5px"></i>
+        </a>
       </div>
     </div>
+  </div>
     <!-- About End -->
 
     <!-- Booking Start -->
+
     <div class="container-fluid bg-secondary booking-section py-5" id="booking">
       <div class="container">
         <div class="row align-items-center g-5">
           <!-- Left Column: Text Content -->
           <div class="col-lg-6 text-white">
-            <h1 class="display-5 fw-bold mb-4" style="color: white">
-              Award-Winning Bike Repair Services
+            <h1 class="display-5 fw-bold mb-4">
+              Our Services
             </h1>
-            <p class="mb-4">
-              Experience top-notch bike servicing with our certified
-              technicians. Schedule your service today, and we’ll confirm your
-              booking within 24 hours!
-            </p>
+            
             <ul class="list-unstyled">
               <li class="mb-3">
-                <i class="fas fa-check-circle text-primary me-2"></i> Expert
-                Technicians
+                <i class="fas fa-check-circle  me-2" style="color:orange"></i> Free pick and drop service
               </li>
               <li class="mb-3">
-                <i class="fas fa-check-circle text-primary me-2"></i> Affordable
-                Pricing
+                <i class="fas fa-check-circle me-2" style="color:orange"></i> Two Wheeler Services
               </li>
               <li class="mb-3">
-                <i class="fas fa-check-circle text-primary me-2"></i> Quick
-                Turnaround
+                <i class="fas fa-check-circle me-2" style="color:orange"></i> Road Side Assistance 
+              </li>
+              <li class="mb-3">
+                <i class="fas fa-check-circle me-2" style="color:orange"></i> Yearly AMC Subscriptions
+              </li>
+              <li class="mb-3">
+                <i class="fas fa-check-circle  me-2" style="color:orange"></i> Buy Insurance
+              </li>
+              <li class="mb-3">
+                <i class="fas fa-check-circle  me-2" style="color:orange"></i>Batteries At Home
+              </li>
+              <li class="mb-3">
+                <i class="fas fa-check-circle me-2" style="color:orange"></i> Tyres At Home
+              </li>
+              <li class="mb-3">
+                <i class="fas fa-check-circle me-2" style="color:orange"></i> Accidental Repairs
+              </li>
+              <li class="mb-3">
+                <i class="fas fa-check-circle  me-2" style="color:orange"></i> EV Bike Services
+              </li>
+              <li class="mb-3">
+                <i class="fas fa-check-circle  me-2" style="color:orange"></i> Bike Washing Service
               </li>
             </ul>
           </div>
-
+    
           <!-- Right Column: Booking Form -->
           <div class="col-lg-6">
             <div class="bg-light rounded shadow p-4">
@@ -557,7 +599,7 @@
                   name="_next"
                   value="https://anvi-bike.vercel.app/thank-you.html"
                 />
-
+    
                 <div class="row g-3">
                   <div class="col-md-6">
                     <label class="form-label" style="color: black">
@@ -754,6 +796,31 @@
         </div>
       </div>
     </div>
+    
+        
+        <script>
+          document
+            .getElementById("areaSelect")
+            .addEventListener("change", function () {
+              var otherAreaDiv = document.getElementById("otherAreaDiv");
+              if (this.value === "Others") {
+                otherAreaDiv.classList.remove("d-none");
+              } else {
+                otherAreaDiv.classList.add("d-none");
+              }
+            });
+    
+            
+          
+            // Add form submission handler
+            document.querySelector('form').addEventListener('submit', function(e) {
+              const email = document.getElementById('userEmail').value;
+              const ccInput = document.querySelector('input[name="_cc"]');
+              ccInput.value = email;
+        
+            });
+            </script>
+    
 
     <!-- Fact Start -->
     <div class="container-fluid fact bg-dark my-5 py-5">
@@ -877,7 +944,7 @@
     <!-- Team End -->
 
     <!-- Footer Start -->
-    <div class="footer">
+    <div class="footertab">
       <div class="container">
         <div class="footer-content">
           <!-- Address Section -->

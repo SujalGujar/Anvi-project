@@ -64,7 +64,7 @@
         box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
       }
 
-      .footer {
+      .footertab {
         background-color: #1a1a1a;
         color: #ffffff;
         padding: 60px 0 0 0;
@@ -281,7 +281,7 @@
         display: flex;
         align-items: center;
         border: 1px solid rgba(240, 240, 240, 0.8);
-        width: 100%;
+        width: 85%;
         position: relative;
         overflow: hidden;
       }
@@ -574,9 +574,16 @@
         href="index.html"
         class="navbar-brand d-flex align-items-center px-4 px-lg-5"
       >
+        <!--
         <h2 class="m-0 text-primary">
           <i class="fa fa-motorcycle me-3"></i>Anvi
         </h2>
+        -->
+        <img
+          src="img/logoanvi.jpeg"
+          alt="Anvi Auto Service Center Logo"
+          style="height: 65px; width: auto"
+        />
       </a>
       <button
         type="button"
@@ -594,8 +601,9 @@
           <a href="#booking" class="nav-item nav-link">Contact</a>
         </div>
         <a href="#booking" class="btn btn-primary py-4 px-2 d-none d-lg-block"
-          >Book an Appointment<i class="fa fa-arrow-right ms-3"></i
-        ></a>
+          style="background-color: black; border-color: gray;"
+        >Book an Appointment<i class="fa fa-arrow-right ms-3"></i></a>
+
       </div>
     </nav>
 
@@ -628,22 +636,10 @@
     <!-- Servies Start-->
     <div class="container-xxl service py-5">
       <div class="container">
-        <!--
-    <div class="text-center mb-5">
-      <h1 class="text-primary text-uppercase">Our Services</h1>
-      <br/>
-        <h4 class="text-primary">Your Doorstep Service</h4>
-        <h5 style="font-weight: normal; color: #666;">
-          Experience Professional Periodic Bike Servicing at Your Doorstep in Ahmedabad.<br />
-          Avail Expert Bike Engine Repairs, Battery Replacements, and More<br />
-          All From the Comfort of Your Home.
-        </h5> 
-    </div>
-    -->
         <div style="text-align: center; margin-bottom: 50px">
           <h1
             style="
-              color: #007bff;
+              color: #0A2342;
               text-transform: uppercase;
               font-size: 36px;
               font-weight: bold;
@@ -651,9 +647,9 @@
               margin-bottom: 10px;
             "
           >
-            Our Services
+            Your Doorstep Service
           </h1>
-
+    
           <div
             style="
               width: 60px;
@@ -662,18 +658,7 @@
               margin: 10px auto;
             "
           ></div>
-
-          <h4
-            style="
-              color: #007bff;
-              font-size: 24px;
-              font-weight: 600;
-              margin-top: 15px;
-            "
-          >
-            Your Doorstep Service
-          </h4>
-
+    
           <h5
             style="
               font-size: 18px;
@@ -681,22 +666,58 @@
               color: #666;
               line-height: 1.6;
               max-width: 700px;
-              margin: 10px auto;
+              margin: 20px auto;
             "
           >
             Experience
-            <span style="font-weight: 600; color: #333"
-              >Professional Periodic Bike Servicing</span
-            >
+            <span style="font-weight: 600; color: rgb(227, 124, 34)">
+              Professional Periodic Bike Servicing
+            </span>
             at Your Doorstep in Ahmedabad.<br />
             Avail
-            <span style="font-weight: 600; color: #333"
-              >Expert Bike Engine Repairs, Battery Replacements</span
-            >, and More,<br />
+            <span style="font-weight: 600; color: #333">
+              Expert Bike Engine Repairs, Battery Replacements
+            </span>,
+            and More,<br />
             All From the Comfort of Your Home.
           </h5>
+    
+          <!-- Highlighted Warranty Section -->
+          <div
+            style="
+              background-color: #0A2342;
+              color: white;
+              font-size: 24px;
+              font-weight: bold;
+              text-transform: uppercase;
+              padding: 15px 25px;
+              border-radius: 12px;
+              box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+              display: inline-block;
+              margin-top: 15px;
+              letter-spacing: 1px;
+              animation: pulse 1.5s infinite;
+            "
+          >
+            🚀 15 Days Service Warranty! 🚀
+          </div>
+    
+          <style>
+            @keyframes pulse {
+              0% {
+                transform: scale(1);
+              }
+              50% {
+                transform: scale(1.1);
+              }
+              100% {
+                transform: scale(1);
+              }
+            }
+          </style>
+          
         </div>
-
+    
         <div class="row">
           <ul class="list-unstyled">
             <li>
@@ -760,40 +781,56 @@
             </li>
           </ul>
         </div>
+        
       </div>
     </div>
     <!-- Service End -->
 
     <!-- Booking Start -->
+    
     <div class="container-fluid bg-secondary booking-section py-5" id="booking">
       <div class="container">
         <div class="row align-items-center g-5">
           <!-- Left Column: Text Content -->
           <div class="col-lg-6 text-white">
             <h1 class="display-5 fw-bold mb-4">
-              Award-Winning Bike Repair Services
+              Our Services
             </h1>
-            <p class="mb-4">
-              Experience top-notch bike servicing with our certified
-              technicians. Schedule your service today, and we’ll confirm your
-              booking within 24 hours!
-            </p>
+            
             <ul class="list-unstyled">
               <li class="mb-3">
-                <i class="fas fa-check-circle text-primary me-2"></i> Expert
-                Technicians
+                <i class="fas fa-check-circle  me-2" style="color:orange"></i> Free pick and drop service
               </li>
               <li class="mb-3">
-                <i class="fas fa-check-circle text-primary me-2"></i> Affordable
-                Pricing
+                <i class="fas fa-check-circle me-2" style="color:orange"></i> Two Wheeler Services
               </li>
               <li class="mb-3">
-                <i class="fas fa-check-circle text-primary me-2"></i> Quick
-                Turnaround
+                <i class="fas fa-check-circle me-2" style="color:orange"></i> Road Side Assistance 
+              </li>
+              <li class="mb-3">
+                <i class="fas fa-check-circle me-2" style="color:orange"></i> Yearly AMC Subscriptions
+              </li>
+              <li class="mb-3">
+                <i class="fas fa-check-circle  me-2" style="color:orange"></i> Buy Insurance
+              </li>
+              <li class="mb-3">
+                <i class="fas fa-check-circle  me-2" style="color:orange"></i>Batteries At Home
+              </li>
+              <li class="mb-3">
+                <i class="fas fa-check-circle me-2" style="color:orange"></i> Tyres At Home
+              </li>
+              <li class="mb-3">
+                <i class="fas fa-check-circle me-2" style="color:orange"></i> Accidental Repairs
+              </li>
+              <li class="mb-3">
+                <i class="fas fa-check-circle  me-2" style="color:orange"></i> EV Bike Services
+              </li>
+              <li class="mb-3">
+                <i class="fas fa-check-circle  me-2" style="color:orange"></i> Bike Washing Service
               </li>
             </ul>
           </div>
-
+    
           <!-- Right Column: Booking Form -->
           <div class="col-lg-6">
             <div class="bg-light rounded shadow p-4">
@@ -814,7 +851,7 @@
                   name="_next"
                   value="https://anvi-bike.vercel.app/thank-you.html"
                 />
-
+    
                 <div class="row g-3">
                   <div class="col-md-6">
                     <label class="form-label" style="color: black">
@@ -1011,6 +1048,30 @@
         </div>
       </div>
     </div>
+    
+        
+        <script>
+          document
+            .getElementById("areaSelect")
+            .addEventListener("change", function () {
+              var otherAreaDiv = document.getElementById("otherAreaDiv");
+              if (this.value === "Others") {
+                otherAreaDiv.classList.remove("d-none");
+              } else {
+                otherAreaDiv.classList.add("d-none");
+              }
+            });
+    
+            
+          
+            // Add form submission handler
+            document.querySelector('form').addEventListener('submit', function(e) {
+              const email = document.getElementById('userEmail').value;
+              const ccInput = document.querySelector('input[name="_cc"]');
+              ccInput.value = email;
+        
+            });
+            </script>
 
     <!-- Testimonial Start -->
     <!--
@@ -1060,7 +1121,7 @@
     <!-- Testimonial End -->
 
     <!-- Footer Start -->
-    <div class="footer">
+    <div class="footertab">
       <div class="container">
         <div class="footer-content">
           <!-- Address Section -->
