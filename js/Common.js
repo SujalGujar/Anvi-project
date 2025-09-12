@@ -46,9 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Radio button toggle
   radios.forEach((radio) => {
     radio.addEventListener("change", function (event) {
-      event.preventDefault();
-
-      // Hide all forms
       document
         .querySelectorAll("#formSpace form")
         .forEach((form) => (form.style.display = "none"));
@@ -65,6 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Decide Buy / Sell fields
         toggleTransactionFields();
+        toggleRequired();
       } else if (this.value === "services") {
         // Show services container
         if (servicesDetails) servicesDetails.style.display = "block";
@@ -80,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Run service type toggle
         toggleDoorStepSeviceField();
+        toggleRequired();
       }
     });
   });
@@ -106,11 +105,13 @@ function toggleTransactionFields() {
 
   buyFields.classList.add("d-none");
   sellFields.classList.add("d-none");
+  toggleRequired();
 
   if (transactionType === "buy") {
     buyFields.classList.remove("d-none");
   } else if (transactionType === "sell") {
     sellFields.classList.remove("d-none");
+    toggleRequired();
   }
 }
 
@@ -129,6 +130,7 @@ function toggleDoorStepSeviceField() {
     otherFields.forEach((field) => (field.style.display = "none"));
     if (buyFields) buyFields.classList.add("d-none");
     if (sellFields) sellFields.classList.add("d-none");
+    toggleRequired();
   } else if (
     serviceType === "Regular service" ||
     serviceType === "Inspection" ||
@@ -138,11 +140,13 @@ function toggleDoorStepSeviceField() {
     otherFields.forEach((field) => (field.style.display = "block"));
     if (buyFields) buyFields.classList.add("d-none");
     if (sellFields) sellFields.classList.add("d-none");
+    toggleRequired();
   } else {
     doorStepFields.style.display = "none";
     otherFields.forEach((field) => (field.style.display = "none"));
     if (buyFields) buyFields.classList.add("d-none");
     if (sellFields) sellFields.classList.add("d-none");
+    toggleRequired();
   }
 }
 
