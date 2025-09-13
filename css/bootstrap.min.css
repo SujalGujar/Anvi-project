@@ -6847,7 +6847,9 @@ fieldset:disabled .btn {
   background-color: #dc3545 !important;
 }
 .bg-light {
-  background-color: #f2f2f2 !important;
+  background: rgba(255, 255, 255, 0.7);
+backdrop-filter: blur(6px);
+
 }
 .bg-dark {
   background-color: #111 !important;

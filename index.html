@@ -2291,114 +2291,100 @@ if (combinedForm) {
       </div>
     </div>
      <div class="container-fluid bg-secondary booking-section py-5 mb-5" id="contact-us">
-      <div class="container">
-        
-          
-            <div class="bg-light rounded  shadow p-4">
-    <h3 class="text-center fw-bold mb-4">Contact Us</h3>
-              
-              <form
-              
-                action="https://formsubmit.co/prajapativijendra664@gmail.com"
-                method="POST"
-              >
-                <input
-                  type="hidden"
-                  name="_subject"
-                  value="New Service Booking Request"
-                />
-                <input type="hidden" name="_template" value="table" />
-                <input type="hidden" name="_captcha" value="false" />
-                <input
-                  type="hidden"
-                  name="_next"
-                  value="https://anvi-bike.vercel.app/thank-you.html"
-                />
-    
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <label class="form-label" style="color: black">
-                      First Name</label
-                    >
-                    <input
-                      type="text"
-                      name="name"
-                      class="form-control border-0 shadow-sm"
-                      placeholder="Enter your name"
-                      required
-                    />
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label" style="color: black">
-                      last Name</label
-                    >
-                    <input
-                      type="text"
-                      name="name"
-                      class="form-control border-0 shadow-sm"
-                      placeholder="Enter your name"
-                      required
-                    />
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label" style="color: black"
-                      >Mobile No.</label
-                    >
-                    <input
-                      type="text"
-                      name="contact"
-                      class="form-control border-0 shadow-sm"
-                      pattern="\d{10}"
-                      maxlength="10"
-                      placeholder="10-digit number"
-                      required
-                    />
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label" style="color: black">
-                      Your Email</label
-                    >
-                    <input
-                      type="email"
-                      name="email"
-                      class="form-control border-0 shadow-sm"
-                      placeholder="example@domain.com"
-                      required
-                    />
-                  </div>
-                  
-                  
-                 
-                 
-                  
-                  <div class="col-12">
-                    <label class="form-label" style="color: black"
-                      >Your Message</label
-                    >
-                    <textarea
-                      name="description"
-                      rows="4"
-                      class="form-control border-0 shadow-sm"
-                      placeholder="Additional details..."
-                      required
-                    ></textarea>
-                  </div>
-                  <div class="col-12">
-                    <button
-                      class="btn w-100 py-2 shadow"
-                      style="background-color: green; color: black"
-                      type="submit"
-                      id="sendMessageButton"
-                    >
-                      Send Message
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
+  <div class="container">
+    <div class="bg-light rounded shadow-lg p-4 p-md-5" >
+      <h3 class="text-center fw-bold mb-4 text-primary">Contact Us</h3>
+
+      <form
+        action="https://formsubmit.co/prajapativijendra664@gmail.com"
+        method="POST"
+      >
+        <!-- Hidden Inputs -->
+        <input type="hidden" name="_subject" value="New Service Booking Request" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input
+          type="hidden"
+          name="_next"
+          value="https://anvi-bike.vercel.app/thank-you.html"
+        />
+
+        <div class="row g-4">
+          <!-- First Name -->
+          <div class="col-md-6">
+            <input
+              type="text"
+              name="first_name"
+              class="form-control border-0 shadow-sm rounded-3 p-3"
+              placeholder="First Name"
+              required
+            />
           </div>
-        
-      </div>
+
+          <!-- Last Name -->
+          <div class="col-md-6">
+            <input
+              type="text"
+              name="last_name"
+              class="form-control border-0 shadow-sm rounded-3 p-3"
+              placeholder="Last Name"
+              required
+            />
+          </div>
+
+          <!-- Mobile -->
+          <div class="col-md-6">
+            <input
+              type="text"
+              name="contact"
+              class="form-control border-0 shadow-sm rounded-3 p-3"
+              pattern="\d{10}"
+              maxlength="10"
+              placeholder="10-digit Mobile No."
+              required
+            />
+          </div>
+
+          <!-- Email -->
+          <div class="col-md-6">
+            <input
+              type="email"
+              name="email"
+              class="form-control border-0 shadow-sm rounded-3 p-3"
+              placeholder="Email Address"
+              required
+            />
+          </div>
+
+          <!-- Message -->
+          <div class="col-12">
+            <textarea
+              name="description"
+              rows="4"
+              class="form-control border-0 shadow-sm rounded-3 p-3"
+              placeholder="Your Message"
+              required
+            ></textarea>
+          </div>
+
+          <!-- Button -->
+          <div class="col-12">
+            <button
+              class="btn w-100 py-3 fw-bold text-white shadow-lg rounded-3"
+              style="background: linear-gradient(135deg, #28a745, #218838); transition: all 0.3s;"
+              type="submit"
+              id="sendMessageButton"
+             
+            >
+               Send Message
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
     
     
 
