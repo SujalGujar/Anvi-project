@@ -131,10 +131,28 @@
       }
 
       .container {
+        width: 100%;
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 20px;
       }
+      
+#contact-us .bg-light {
+  width: 100%;
+  max-width: 100%; 
+  margin: 0 auto;
+}
+
+
+@media (min-width: 992px) {
+  #contact-us .bg-light {
+    max-width: 800px; 
+  }
+}
+
+
+      
+      
 
       .footer-content {
         display: grid;
@@ -1210,7 +1228,7 @@
         >
           <img
           id="aboutImage"
-            src="img/about-us3.jpg"
+            src="img/about-us6.png"
             alt="Bike Mechanic"
             style="
               width: 100%;
@@ -2274,30 +2292,13 @@ if (combinedForm) {
     </div>
      <div class="container-fluid bg-secondary booking-section py-5 mb-5" id="contact-us">
       <div class="container">
-        <div class="row space-between g-10" >
-          <!-- Left Column: Text Content -->
-          <div class="col-lg-6 p-10 text-white" style="
-    padding: 100px;
-    
-">
-            <h1 class="display-5 fw-bold mb-4 font-[Oswald,sans-serif] text-4xl font-bold  tracking-wider" style="
-    color: #0b2154;"    
-    >CONTACT US</h1>
-          <span class="mb-4 text-[15px]  opacity-85 leading-[1.8] font-light font-[Oswald,sans-serif]" style="color:#f1f1f1" >
-             "It is very important for us to keep in touch with you, so we are always ready to answer any question that interests you. Shoot!"
-             </span>
-
-            
-          </div>
-
-          <!-- Right Column: Booking Form -->
-          <div class="col-lg-6">
-            <div class="bg-light rounded mx-10px shadow p-4" style="
-    margin-left: 50px;
-    margin-right: 50px;" >
+        
+          
+            <div class="bg-light rounded  shadow p-4">
+    <h3 class="text-center fw-bold mb-4">Contact Us</h3>
               
               <form
-              id="contactUsForm"
+              
                 action="https://formsubmit.co/prajapativijendra664@gmail.com"
                 method="POST"
               >
@@ -2396,9 +2397,9 @@ if (combinedForm) {
               </form>
             </div>
           </div>
-        </div>
+        
       </div>
-    </div>
+    
     
 
 
