@@ -44,6 +44,11 @@
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link href="css/form-content.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <style>
       .logo-carousel {
@@ -99,6 +104,7 @@
 
       .booking-section {
         background: linear-gradient(to right, #6c757d, #495057);
+            
         color: #ffffff;
       }
       .booking-section h1,
@@ -2266,11 +2272,32 @@ if (combinedForm) {
         </div>
       </div>
     </div>
-    <div class="bg-light rounded mx-10px shadow p-4" style="
+     <div class="container-fluid bg-secondary booking-section py-5 mb-5" id="booking">
+      <div class="container">
+        <div class="row space-between g-10" >
+          <!-- Left Column: Text Content -->
+          <div class="col-lg-6 p-10 text-white" style="
+    padding: 100px;
+    
+">
+            <h1 class="display-5 fw-bold mb-4 font-[Oswald,sans-serif] text-4xl font-bold  tracking-wider" style="
+    color: #DCD7C9;
+    ">CONTACT US</h1>
+          <span class="mb-4 text-[15px]  opacity-85 leading-[1.8] font-light font-[Oswald,sans-serif]" style="color:#d8b786" >
+             "It is very important for us to keep in touch with you, so we are always ready to answer any question that interests you. Shoot!"
+             </span>
+
+            
+          </div>
+
+          <!-- Right Column: Booking Form -->
+          <div class="col-lg-6">
+            <div class="bg-light rounded mx-10px shadow p-4" style="
     margin-left: 50px;
     margin-right: 50px;" id="contact-us">
-              <h3 class="text-center fw-bold mb-4">Contact Us</h3>
+              
               <form
+              id="contactUsForm"
                 action="https://formsubmit.co/prajapativijendra664@gmail.com"
                 method="POST"
               >
@@ -2360,6 +2387,7 @@ if (combinedForm) {
                       class="btn w-100 py-2 shadow"
                       style="background-color: green; color: black"
                       type="submit"
+                      id="sendMessageButton"
                     >
                       Send Message
                     </button>
@@ -2367,6 +2395,14 @@ if (combinedForm) {
                 </div>
               </form>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+    
 
     <div class="footertab" >
       <div class="container">

@@ -1,4 +1,7 @@
 /********** Template CSS **********/
+
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+
 :root {
   --primary: #d81324;
   --secondary: #0b2154;
@@ -152,7 +155,7 @@
 }
 /* Add this to your global CSS */
 @media (max-width: 350px) {
-  .about-image {
+  .aboutImage {
     max-width: 100%; /* On very small screens, allow the card to be 100% of the screen width */
     /* Optional: Reduce the height to maintain proportion */
     height: 350px;
@@ -215,6 +218,18 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+#contactUsDes {
+  font-size: 15px;
+  color: #e5e5e5;
+  opacity: 0.85;
+  line-height: 1.8;
+
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300; /* Light weight looks elegant */
+  font-style: normal;
 }
 
 /*** Service ***/
